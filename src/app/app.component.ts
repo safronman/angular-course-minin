@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Output} from '@angular/core';
 
 export interface Post {
     title: string;
@@ -25,4 +25,7 @@ export class AppComponent {
         }
     ];
 
+    addPost(post: Post) {
+        this.posts = [post, ...this.posts];
+    }
 }

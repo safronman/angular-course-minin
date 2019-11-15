@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Post} from '../app.component';
+
+
 
 @Component({
-  selector: 'app-post-form',
-  templateUrl: './post-form.component.html',
-  styleUrls: ['./post-form.component.css']
+    selector: 'app-post-form',
+    templateUrl: './post-form.component.html',
+    styleUrls: ['./post-form.component.css']
 })
-export class PostFormComponent implements OnInit {
+export class PostFormComponent {
 
-  constructor() { }
+    title = '';
+    text = '';
 
-  ngOnInit() {
-  }
+    @Output() onAddPost: EventEmitter<Post> = new EventEmitter<Post>();
 
+    createPost() {
+        const post: Post = {
+            text: this.text,
+            title: this.title
+        };
+        this.onAddPost.emit(post);
+        this.title = this.text = '';
+    }
 }

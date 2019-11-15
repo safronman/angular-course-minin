@@ -1,3 +1,3 @@
-<input class="input" type="text" placeholder="Enter title">
-<input class="input" type="text" placeholder="Enter text">
-<button>Add post</button>
+<input class="input" type="text" placeholder="Enter title" [(ngModel)]="title" >
+<input class="input" type="text" placeholder="Enter text" [(ngModel)]="text">
+<button (click)="createPost()">Add post</button>
